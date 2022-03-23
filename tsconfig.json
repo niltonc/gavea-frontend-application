@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "strict": true
+  },
+  "extends": "expo/tsconfig.base",
+  "files":[
+    "src/styles/theme/styled.d.ts"
+  ]
+}
