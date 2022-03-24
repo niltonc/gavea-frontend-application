@@ -13,17 +13,18 @@ export default function Welcome({
       <S.BackgroundImage source={BGLogo}>
         <S.Logo source={Logo} />
 
-        <S.WelcomeTxt>
+        <S.WelcomeText>
           Bem-vindo a sua bolsa digital de commodities
-        </S.WelcomeTxt>
+        </S.WelcomeText>
 
-        <S.ButtonLogin onPress={() => navigation.navigate('Settings')}>
-          <S.TextButton>Entrar</S.TextButton>
-        </S.ButtonLogin>
-
-        <S.ButtonSingup onPress={() => navigation.navigate('SingUp')}>
-          <S.TextButton>Criar Conta</S.TextButton>
-        </S.ButtonSingup>
+        <S.ButtonContainer>
+          <S.ButtonLogin onPress={() => navigation.navigate('Login')}>
+            <S.ButtonText>Entrar</S.ButtonText>
+          </S.ButtonLogin>
+          <S.ButtonSingup onPress={() => navigation.navigate('SingUp')}>
+            <S.ButtonText>Criar Conta</S.ButtonText>
+          </S.ButtonSingup>
+        </S.ButtonContainer>
       </S.BackgroundImage>
     </S.Container>
   );

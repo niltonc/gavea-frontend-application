@@ -5,7 +5,9 @@ import * as S from '../../styles';
 export default function SingUp({ navigation }: RootStackScreenProps<'SingUp'>) {
   return (
     <S.Container>
-      <S.Text2>Criar Conta</S.Text2>
+      <S.TitleText>Criar Conta</S.TitleText>
+
+      <S.TextInput placeholder="Nome completo" />
     </S.Container>
   );
 }

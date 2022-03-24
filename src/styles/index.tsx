@@ -11,54 +11,51 @@ export const BackgroundImage = styled.ImageBackground`
 `;
 
 export const Logo = styled.Image`
-  top: 45px;
-  left: 15px;
   position: absolute;
+  margin-top: 45px;
+  margin-left: 5%;
 `;
 
-export const WelcomeTxt = styled.Text`
+export const WelcomeText = styled.Text`
   color: ${props => props.theme.colors.white};
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 47px;
-  width: 332px;
-  height: 131px;
-  left: 15px;
-  top: 299px;
+  width: 90%;
+  height: 24%;
+  margin-left: 5%;
+  margin-top: 299px;
 `;
 
+export const ButtonContainer = styled.View`
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+`;
 export const ButtonLogin = styled.TouchableOpacity`
   background-color: ${props => props.theme.colors.primary};
-  position: absolute;
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
   width: 330px;
   height: 55px;
-  top: 475px;
-  left: 15px;
+  margin-bottom: 15px;
 `;
-
 export const ButtonSingup = styled.TouchableOpacity`
+  border-color: ${props => props.theme.colors.white};
   background-color: transparent;
-  position: absolute;
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-color: ${props => props.theme.colors.white};
   border-width: 1.5px;
   border-radius: 4px;
   width: 330px;
   height: 55px;
-  top: 545px;
-  left: 15px;
 `;
 
-export const TextButton = styled.Text`
+export const ButtonText = styled.Text`
   color: ${props => props.theme.colors.white};
   position: absolute;
   font-style: normal;
@@ -67,7 +64,7 @@ export const TextButton = styled.Text`
   text-align: center;
 `;
 
-export const Text2 = styled.Text`
+export const TitleText = styled.Text`
   color: ${props => props.theme.colors.black};
   position: absolute;
   font-style: normal;
@@ -77,5 +74,15 @@ export const Text2 = styled.Text`
   width: 139px;
   height: 30px;
   top: 104px;
+  left: 15px;
+`;
+
+export const TextInput = styled.TextInput`
+  background-color: ${props => props.theme.colors.white};
+  border-color: ${props => props.theme.colors.black};
+  border-radius: 4px;
+  border-width: 1.5;
+  width: 330px;
+  height: 55px;
   left: 15px;
 `;
