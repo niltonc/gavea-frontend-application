@@ -1,12 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 
-const Home = () => {
+import logo from '../../assets/images/logo.png';
+import { RootStackScreenProps } from '../../types';
+
+import * as S from '../../styles';
+
+export default function HomePage({
+  navigation,
+}: RootStackScreenProps<'HomePage'>) {
   return (
-    <View>
-      <Text>HOME PAGE</Text>
-    </View>
+    <S.Container>
+      <S.DesignView>
+        <S.LogoHome source={logo} />
+      </S.DesignView>
+    </S.Container>
   );
-};
-
-export default Home;
+}

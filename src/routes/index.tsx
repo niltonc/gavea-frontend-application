@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import SignIn from '../screens/auth/signin';
 import SignUp from '../screens/auth/signup';
-import Home from '../screens/home';
+import HomePage from '../screens/home';
 import Welcome from '../screens/welcome';
 import { RootStackParamList } from '../types';
 
@@ -25,7 +25,7 @@ function RootNavigator() {
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="SignIn" component={SignIn} />
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home" component={HomePage} />
     </Stack.Navigator>
   );
 }

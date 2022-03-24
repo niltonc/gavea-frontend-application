@@ -16,6 +16,12 @@ export const Logo = styled.Image`
   margin-left: 5%;
 `;
 
+export const LogoHome = styled(Logo)`
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+`;
+
 export const WelcomeContainer = styled.View`
   height: 150px;
   margin-top: 350px;
@@ -116,4 +122,13 @@ export const SimpleTextSecundary = styled(SimpleTextPrimary)`
   color: ${({ theme }) => theme.colors.primary};
   font-weight: bold;
   margin-left: 5px;
+`;
+
+export const DesignView = styled.View`
+  position: absolute;
+  width: 375px;
+  height: 150px;
+  left: 0px;
+  top: 0px;
+  background: #01426a;
 `;
