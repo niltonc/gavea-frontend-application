@@ -20,10 +20,10 @@ export default function Welcome({
         </S.WelcomeContainer>
 
         <S.ButtonContainer>
-          <S.ButtonPrimary onPress={() => navigation.navigate('Login')}>
+          <S.ButtonPrimary onPress={() => navigation.navigate('SignIn')}>
             <S.ButtonText>Entrar</S.ButtonText>
           </S.ButtonPrimary>
-          <S.ButtonSecundary onPress={() => navigation.navigate('SingUp')}>
+          <S.ButtonSecundary onPress={() => navigation.navigate('SignUp')}>
             <S.ButtonText>Criar Conta</S.ButtonText>
           </S.ButtonSecundary>
         </S.ButtonContainer>

@@ -8,8 +8,8 @@ import {
   TextInputProps as RNTextInputProps,
 } from 'react-native';
 
-import { Text } from './Text';
 import colors from '../constants/colors';
+import { Text } from './Text';
 
 const styles = StyleSheet.create({
   inputContainer: {
@@ -26,15 +26,15 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   border: {
-    height: 1,
     backgroundColor: colors.border,
+    height: 1,
   },
   borderError: {
     backgroundColor: colors.error,
   },
   errorText: {
-    marginTop: 5,
     color: colors.error,
+    marginTop: 5,
   },
 });
 
@@ -43,11 +43,7 @@ interface TextInputProps extends RNTextInputProps {
   errorText?: string;
 }
 
-export const TextInput = ({
-  label,
-  errorText = '',
-  ...rest
-}: TextInputProps) => {
+export function TextInput({ label, errorText = '', ...rest }: TextInputProps) {
   const borderStyles: StyleProp<ViewStyle> = [styles.border];
 
   if (errorText && errorText.length > 0) {
@@ -56,10 +52,10 @@ export const TextInput = ({
 
   return (
     <View style={styles.inputContainer}>
-      <Text style={[styles.labelText]}>{label}</Text>
+      <Text style={styles.labelText}>{label}</Text>
       <RNTextInput style={styles.textInput} {...rest} />
       <View style={borderStyles} />
-      <Text style={[styles.errorText]}>{errorText}</Text>
+      <Text style={styles.errorText}>{errorText}</Text>
     </View>
   );
-};
+}

@@ -2,8 +2,8 @@
   "compilerOptions": {
     "strict": true
   },
-  "extends": "expo/tsconfig.base",
-  "files":[
+  "files": [
     "src/styles/theme/styled.d.ts"
-  ]
+  ],
+  "extends": "expo/tsconfig.base"
 }

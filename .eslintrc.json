@@ -1,0 +1,117 @@
+{
+    "env": {
+        "es2021": true
+    },
+    "extends": [
+        "airbnb",
+        "plugin:prettier/recommended",
+        "plugin:react/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "import",
+        "import-helpers",
+        "jsx-a11y",
+        "prettier",
+        "react",
+        "react-hooks",
+        "react-native",
+        "unused-imports"
+    ],
+    "rules": {
+      "import/no-unresolved": "off",
+      "import/extensions": "off",
+      "react/jsx-filename-extension": "off",
+      "array-callback-return": "off",
+      "consistent-return": "off",
+      "default-param-last": "off",
+      "eqeqeq": "off",
+      "camelcase": "off",
+      "global-require": "off",
+      "import-helpers/order-imports": [
+        "error",
+        {
+          "newlinesBetween": "always",
+          "groups": [
+            [
+              "/^react/",
+              "/^redux/"
+            ],
+            "/styled-components/",
+            "module",
+            "/prop-types/",
+            "/^~/pages/",
+            "/^~/components/",
+            [
+              "parent",
+              "sibling",
+              "index"
+            ],
+            "/routes/",
+            "/^~/",
+            "/styles/"
+          ],
+          "alphabetize": {
+            "order": "asc",
+            "ignoreCase": true
+          }
+        }
+      ],
+      "import/prefer-default-export": "off",
+      "no-console":"off",
+      "no-param-reassign": "off",
+      "no-prototype-builtins": "off",
+      "no-return-assign": "off",
+      "no-shadow":"off",
+      "no-unused-vars": "off",
+      "no-underscore-dangle":"off",
+      "no-use-before-define": 0,
+      "prettier/prettier": [
+        "error",
+        {
+          "printWidth": 80,
+          "semi": true,
+          "singleQuote": true,
+          "tabWidth": 2,
+          "trailingComma": "es5",
+          "endOfLine": "auto"
+        }
+      ],
+      "react/destructuring-assignment": "off",
+      "react/prop-types": "off",
+      "react/jsx-fragments": 0,
+      "react/jsx-props-no-spreading": 0,
+      "react-native/no-single-element-style-arrays": 2,
+      "react-native/no-unused-styles": 2,
+      "react-native/sort-styles": [
+        "error",
+        "asc",
+        {
+          "ignoreClassNames": true,
+          "ignoreStyleProperties": false
+        }
+      ],
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": [
+        "warn",
+        { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+      ]
+    },
+    "globals": {
+      "__DEV__": "readonly",
+      "describe": "readonly",
+      "expect": "readonly",
+      "it": "readonly",
+      "jest": "readonly",
+      "fetch": false
+    }
+}

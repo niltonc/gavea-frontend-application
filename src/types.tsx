@@ -8,12 +8,10 @@ declare global {
 
 export type RootStackParamList = {
   Welcome: undefined;
-  SingUp: undefined;
-  Login: undefined;
+  SignIn: undefined;
+  SignUp: undefined;
   Home: undefined;
 };
 
-export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
-  RootStackParamList,
-  Screen
->;
+export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
+  NativeStackScreenProps<RootStackParamList, Screen>;

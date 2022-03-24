@@ -13,11 +13,11 @@ import colors from '../constants/colors';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary,
-    paddingVertical: 14,
+    borderColor: colors.primary,
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: colors.primary,
     marginVertical: 7,
+    paddingVertical: 14,
   },
   containerOutline: {
     backgroundColor: 'transparent',
@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: colors.white,
     alignSelf: 'center',
+    color: colors.white,
     fontSize: 18,
     fontWeight: '500',
   },
@@ -41,11 +41,11 @@ type ButtonProps = {
   type?: 'outline';
 };
 
-export const Button = ({
+export function Button({
   onPress = () => {},
   children = '',
   type,
-}: ButtonProps) => {
+}: ButtonProps) {
   const containerStyles: StyleProp<ViewStyle>[] = [styles.container];
   const textStyles: StyleProp<TextStyle>[] = [styles.text];
 
@@ -59,4 +59,4 @@ export const Button = ({
       <Text style={textStyles}>{children}</Text>
     </TouchableOpacity>
   );
-};
+}

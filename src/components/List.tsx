@@ -1,21 +1,21 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
-import { Text } from './Text';
 import colors from '../constants/colors';
+import { Text } from './Text';
 
 const styles = StyleSheet.create({
   row: {
+    backgroundColor: colors.white,
     paddingHorizontal: 15,
     paddingVertical: 10,
-    backgroundColor: colors.white,
   },
   titleText: {
     fontWeight: 'bold',
   },
   separator: {
-    height: StyleSheet.hairlineWidth,
     backgroundColor: colors.border,
+    height: StyleSheet.hairlineWidth,
   },
 });
 
@@ -25,21 +25,23 @@ type ListItemProps = {
   onPress: () => void;
 };
 
-export const ListItem = ({
+export function ListItem({
   title,
   subtitle,
   onPress = () => null,
-}: ListItemProps) => {
+}: ListItemProps) {
   const rowStyles = [styles.row];
 
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={rowStyles}>
-        <Text style={[styles.titleText]}>{title}</Text>
+        <Text style={styles.titleText}>{title}</Text>
         <Text>{subtitle}</Text>
       </View>
     </TouchableOpacity>
   );
-};
+}
 
-export const ListSeparator = () => <View style={styles.separator} />;
+export function ListSeparator() {
+  return <View style={styles.separator} />;
+}
