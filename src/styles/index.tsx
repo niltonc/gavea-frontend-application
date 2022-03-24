@@ -132,3 +132,62 @@ export const DesignView = styled.View`
   top: 0px;
   background: #01426a;
 `;
+
+export const UserView = styled.View`
+  position: absolute;
+  width: 330px;
+  height: 80px;
+  left: 15px;
+  top: 110px;
+  background-color: #ffffff;
+  border-radius: 7px;
+  elevation: 5;
+`;
+
+export const OrderContainer = styled.View`
+  position: absolute;
+  flex-direction: column;
+  width: 100%;
+  height: 450px;
+  top: 218px;
+`;
+
+export const SubtitleView = styled.View`
+  position: absolute;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 30px;
+  left: 60px;
+`;
+
+export const SubtitleText = styled.Text`
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  color: #b1bec2;
+`;
+
+export const OrderView = styled.View`
+  align-items: center;
+  width: 100%;
+  height: 420px;
+  top: 250px;
+`;
+
+export const Order = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: #ffffff;
+  width: 333px;
+  height: 50px;
+  border-radius: 4px;
+  elevation: 3;
+  margin-bottom: 8px;
+  border-left-color: ${(props) => props.borderLeftColor};
+  border-left-width: 5px;
+`;
+
+export const OrderIcon = styled.Image``;

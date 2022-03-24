@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "strict": true
+    "strict": true,
   },
   "files": [
     "src/styles/theme/styled.d.ts"
