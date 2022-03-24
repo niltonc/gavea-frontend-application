@@ -19,10 +19,16 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
           placeholder="Confirmar Senha"
           placeholderTextColor="#B1BEC2"
         />
+
         <S.ButtonPrimary>
           <S.ButtonText>Cadastrar</S.ButtonText>
         </S.ButtonPrimary>
       </S.TextInputContainer>
+
+      <S.SimpleTextContainer>
+        <S.SimpleTextPrimary>Já tem uma conta?</S.SimpleTextPrimary>
+        <S.SimpleTextSecundary>Faça o login</S.SimpleTextSecundary>
+      </S.SimpleTextContainer>
     </S.Container>
   );
 }

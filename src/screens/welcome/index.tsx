@@ -1,9 +1,10 @@
 import React from 'react';
-import { RootStackScreenProps } from '../../types';
-import * as S from '../../styles';
 
-import BGLogo from '../../assets/images/welcome-bg.png';
 import Logo from '../../assets/images/logo.png';
+import BGLogo from '../../assets/images/welcome-bg.png';
+import { RootStackScreenProps } from '../../types';
+
+import * as S from '../../styles';
 
 export default function Welcome({
   navigation,

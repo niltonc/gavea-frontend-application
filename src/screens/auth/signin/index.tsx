@@ -7,4 +7,4 @@ export default function SignIn() {
       <Text>Login PAGE</Text>
     </View>
   );
-};
+}

@@ -15,7 +15,7 @@ export const Logo = styled.Image`
   margin-top: 45px;
   margin-left: 5%;
 `;
-// $$$$$$$$$ TEXTO
+
 export const WelcomeContainer = styled.View`
   height: 150px;
   margin-top: 350px;
@@ -29,7 +29,7 @@ export const WelcomeText = styled.Text`
   line-height: 47px;
   position: absolute;
 `;
-// $$$$$$$$$ BUTTON
+
 export const ButtonContainer = styled.View`
   flex-direction: column;
   justify-content: center;
@@ -39,6 +39,7 @@ export const ButtonContainer = styled.View`
   position: absolute;
   margin-top: 500px;
 `;
+
 export const ButtonPrimary = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.primary};
   justify-content: center;
@@ -46,17 +47,13 @@ export const ButtonPrimary = styled.TouchableOpacity`
   border-radius: 4px;
   width: 330px;
   height: 55px;
-  margin-bottom: 15px;
 `;
-export const ButtonSecundary = styled.TouchableOpacity`
+
+export const ButtonSecundary = styled(ButtonPrimary)`
   border-color: ${({ theme }) => theme.colors.white};
   background-color: transparent;
-  justify-content: center;
-  align-items: center;
   border-width: 1.5px;
-  border-radius: 4px;
-  width: 330px;
-  height: 55px;
+  margin: 15px;
 `;
 
 export const ButtonText = styled.Text`
@@ -68,7 +65,6 @@ export const ButtonText = styled.Text`
   text-align: center;
 `;
 
-// $$$$$$$$$ CRIAR CONTA
 export const TitleText = styled.Text`
   color: ${({ theme }) => theme.colors.black};
   position: absolute;
@@ -79,8 +75,7 @@ export const TitleText = styled.Text`
   width: 139px;
   height: 30px;
   margin-left: 5%;
-  margin-top: 104px;
-  background-color: #1227;
+  margin-top: 140px;
 `;
 export const TextInputContainer = styled.View`
   flex-direction: column;
@@ -90,9 +85,7 @@ export const TextInputContainer = styled.View`
   height: 400px;
   position: absolute;
   margin-top: 155px;
-  background-color: #1352;
 `;
-
 export const TextInput = styled.TextInput`
   border-color: #b1bec2;
   border-width: 1.5px;
@@ -100,5 +93,27 @@ export const TextInput = styled.TextInput`
   width: 330px;
   height: 55px;
   margin-bottom: 15px;
-  margin: 15px;
+  padding: 15px;
+`;
+
+export const SimpleTextContainer = styled.View`
+  position: absolute;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+  top: 611px;
+`;
+
+export const SimpleTextPrimary = styled.Text`
+  font-style: normal;
+  font-weight: 400;
+  color: #748c94;
+  font-size: 15px;
+`;
+export const SimpleTextSecundary = styled(SimpleTextPrimary)`
+  color: ${({ theme }) => theme.colors.primary};
+  font-weight: bold;
+  margin-left: 5px;
 `;
