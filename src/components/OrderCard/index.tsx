@@ -1,5 +1,10 @@
 import styled from 'styled-components/native';
 
+interface Props {
+  borderLeftColor: any;
+  selectionColor: any;
+}
+
 export const Card = styled.View`
   flex-direction: row;
   align-items: center;
@@ -20,7 +25,7 @@ export const TextPart = styled.Text`
   position: absolute;
   font-style: normal;
   font-weight: 400;
-  color: #748c94;
+  color: #47595f;
   font-size: 15px;
   left: 55px;
 `;
@@ -32,5 +37,6 @@ export const TextTon = styled(TextPag)`
   left: 220px;
 `;
 export const TextValue = styled(TextTon)`
+  ${(props) => props.selectionColor}
   left: 270px;
 `;

@@ -1,3 +1,6 @@
+/* disable-eslint */
+/* disable-prettier */
+
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -9,12 +12,12 @@ export const ContainerWelcome = styled.View`
   margin-left: 5%;
 `;
 export const ContainerButton = styled.View`
+  position: absolute;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 150px;
-  position: absolute;
   margin-top: 500px;
 `;
 export const ContainerTextInput = styled.View`
@@ -68,10 +71,8 @@ export const ContainerOrder = styled.View`
 `;
 export const View = styled.View`
   position: absolute;
-  width: 375px;
+  width: 100%;
   height: 150px;
-  left: 0px;
-  top: 0px;
   background: #01426a;
 `;
 export const SubtitleView = styled.View`
@@ -104,11 +105,11 @@ export const LogoHome = styled.Image`
 
 export const TextBold = styled.Text`
   color: ${({ theme }) => theme.colors.white};
+  position: absolute;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 47px;
-  position: absolute;
 `;
 export const TitleBold = styled.Text`
   color: ${({ theme }) => theme.colors.primary};

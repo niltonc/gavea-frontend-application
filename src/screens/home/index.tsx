@@ -72,7 +72,6 @@ const arrayOrders: Array<any> = [
     value: 164.5,
   },
 ];
-
 export default function HomePage({
   navigation,
 }: RootStackScreenProps<'HomePage'>) {
