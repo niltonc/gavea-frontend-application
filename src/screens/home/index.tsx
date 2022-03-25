@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo-home.png';
 import * as Card from '../../components/Card';
 import * as Order from '../../components/OrderCard';
 import { RootStackScreenProps } from '../../types';
@@ -78,22 +78,28 @@ export default function HomePage({
 }: RootStackScreenProps<'HomePage'>) {
   return (
     <S.Container>
-      <S.DesignView>
+      <S.View>
         <S.LogoHome source={logo} />
-      </S.DesignView>
+      </S.View>
 
-      <Card.User />
+      <Card.User>
+        <Card.Avatar>
+          <Card.AvatarText>FS</Card.AvatarText>
+        </Card.Avatar>
+        <Card.UserName>Olá, Francisco</Card.UserName>
+        <Card.UserSubtitle>Gavea Marketplace</Card.UserSubtitle>
+      </Card.User>
 
-      <S.OrderContainer>
+      <S.ContainerLeg>
         <S.SubtitleView>
-          <S.SubtitleText>Part</S.SubtitleText>
-          <S.SubtitleText>Pag</S.SubtitleText>
-          <S.SubtitleText>Ton</S.SubtitleText>
-          <S.SubtitleText>R$</S.SubtitleText>
+          <S.TextLeg>Part</S.TextLeg>
+          <S.TextLeg>Pag</S.TextLeg>
+          <S.TextLeg>Ton</S.TextLeg>
+          <S.TextLeg>R$</S.TextLeg>
         </S.SubtitleView>
-      </S.OrderContainer>
+      </S.ContainerLeg>
 
-      <S.OrderView>
+      <S.ContainerOrder>
         {arrayOrders.map((order) => (
           <Order.Card
             key={order.id}
@@ -111,7 +117,7 @@ export default function HomePage({
             <S.TextSimple>{order.value}</S.TextSimple>
           </Order.Card>
         ))}
-      </S.OrderView>
+      </S.ContainerOrder>
     </S.Container>
   );
 }

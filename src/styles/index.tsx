@@ -53,6 +53,27 @@ export const ContainerTitleSemiBold = styled.View`
   height: 40px;
   top: 120px;
 `;
+export const ContainerLeg = styled.View`
+  position: absolute;
+  flex-direction: column;
+  width: 100%;
+  height: 450px;
+  top: 218px;
+`;
+export const ContainerOrder = styled.View`
+  align-items: center;
+  width: 100%;
+  height: 420px;
+  top: 250px;
+`;
+export const View = styled.View`
+  position: absolute;
+  width: 375px;
+  height: 150px;
+  left: 0px;
+  top: 0px;
+  background: #01426a;
+`;
 
 export const BackgroundImage = styled.ImageBackground`
   width: 100%;
@@ -64,10 +85,12 @@ export const Logo = styled.Image`
   margin-top: 45px;
   margin-left: 5%;
 `;
-export const LogoHome = styled(Logo)`
-  justify-content: center;
-  align-items: center;
-  margin-left: 100px;
+export const LogoHome = styled.Image`
+  position: absolute;
+  width: 99px;
+  height: 45.66px;
+  left: 120px;
+  top: 45px;
 `;
 
 export const TextBold = styled.Text`
@@ -93,7 +116,6 @@ export const TitleSemiBold = styled.Text`
   line-height: 30px;
   margin-left: 5%;
 `;
-
 export const TitleBoldSec = styled(TitleBold)`
   color: ${({ theme }) => theme.colors.black};
 `;
@@ -110,23 +132,13 @@ export const TextPrimary = styled(TextSimple)`
 `;
 export const TextClick = styled.TouchableOpacity``;
 
-export const DesignView = styled.View`
-  position: absolute;
-  width: 375px;
-  height: 150px;
-  left: 0px;
-  top: 0px;
-  background: #01426a;
+export const TextLeg = styled.Text`
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  color: #b1bec2;
 `;
-
-export const OrderContainer = styled.View`
-  position: absolute;
-  flex-direction: column;
-  width: 100%;
-  height: 450px;
-  top: 218px;
-`;
-
+/// /////////
 export const SubtitleView = styled.View`
   position: absolute;
   flex-direction: row;
@@ -135,18 +147,4 @@ export const SubtitleView = styled.View`
   width: 80%;
   height: 30px;
   left: 60px;
-`;
-
-export const SubtitleText = styled.Text`
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  color: #b1bec2;
-`;
-
-export const OrderView = styled.View`
-  align-items: center;
-  width: 100%;
-  height: 420px;
-  top: 250px;
 `;
