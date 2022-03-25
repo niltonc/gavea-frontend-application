@@ -9,8 +9,11 @@ import * as S from '../../../styles';
 export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
   return (
     <S.Container>
-      <S.TitleText>Criar Conta</S.TitleText>
-      <S.TextInputContainer>
+      <S.ContainerTitleSemiBold>
+        <S.TitleSemiBold>Criar Conta</S.TitleSemiBold>
+      </S.ContainerTitleSemiBold>
+
+      <S.ContainerTextInputSec>
         <Text.Input
           placeholder="Nome completo"
           placeholderTextColor="#B1BEC2"
@@ -22,15 +25,17 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
           placeholderTextColor="#B1BEC2"
         />
 
-        <Button.Primary>
+        <Button.Margin>
           <Button.Text>Cadastrar</Button.Text>
-        </Button.Primary>
-      </S.TextInputContainer>
+        </Button.Margin>
+      </S.ContainerTextInputSec>
 
-      <S.SimpleTextContainer>
-        <S.SimpleTextPrimary>Já tem uma conta?</S.SimpleTextPrimary>
-        <S.SimpleTextSecundary>Faça o login</S.SimpleTextSecundary>
-      </S.SimpleTextContainer>
+      <S.ContainerText>
+        <S.TextSimple>Já tem uma conta?</S.TextSimple>
+        <S.TextClick onPress={() => navigation.navigate('SignIn')}>
+          <S.TextPrimary>Faça o login</S.TextPrimary>
+        </S.TextClick>
+      </S.ContainerText>
     </S.Container>
   );
 }

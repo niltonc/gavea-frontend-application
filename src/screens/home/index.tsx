@@ -105,10 +105,10 @@ export default function HomePage({
             }}
           >
             <Order.Icon source={order.image} />
-            <S.SimpleTextPrimary>{order.part}</S.SimpleTextPrimary>
-            <S.SimpleTextPrimary>{order.pag}</S.SimpleTextPrimary>
-            <S.SimpleTextPrimary>{order.ton}</S.SimpleTextPrimary>
-            <S.SimpleTextPrimary>{order.value}</S.SimpleTextPrimary>
+            <S.TextSimple>{order.part}</S.TextSimple>
+            <S.TextSimple>{order.pag}</S.TextSimple>
+            <S.TextSimple>{order.ton}</S.TextSimple>
+            <S.TextSimple>{order.value}</S.TextSimple>
           </Order.Card>
         ))}
       </S.OrderView>

@@ -15,11 +15,11 @@ export default function Welcome({
       <S.BackgroundImage source={BGLogo}>
         <S.Logo source={Logo} />
 
-        <S.WelcomeContainer>
-          <S.WelcomeText>
+        <S.ContainerWelcome>
+          <S.TextBold>
             Bem-vindo a {'\n'}sua bolsa digital {'\n'}de commodities
-          </S.WelcomeText>
-        </S.WelcomeContainer>
+          </S.TextBold>
+        </S.ContainerWelcome>
 
         <S.ContainerButton>
           <Button.Primary onPress={() => navigation.navigate('SignIn')}>

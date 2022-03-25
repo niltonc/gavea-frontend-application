@@ -23,6 +23,9 @@ export const Secundary = styled(Primary)`
   border-width: 1.5px;
   margin: 15px;
 `;
+export const Margin = styled(Primary)`
+  margin-top: 15px;
+`;
 export const Text = styled.Text`
   color: ${({ theme }) => theme.colors.white};
   position: absolute;
