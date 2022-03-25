@@ -74,6 +74,15 @@ export const View = styled.View`
   top: 0px;
   background: #01426a;
 `;
+export const SubtitleView = styled.View`
+  position: absolute;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 75%;
+  height: 30px;
+  left: 75px;
+`;
 
 export const BackgroundImage = styled.ImageBackground`
   width: 100%;
@@ -133,18 +142,8 @@ export const TextPrimary = styled(TextSimple)`
 export const TextClick = styled.TouchableOpacity``;
 
 export const TextLeg = styled.Text`
-  font-size: 12px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 600;
   color: #b1bec2;
-`;
-/// /////////
-export const SubtitleView = styled.View`
-  position: absolute;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 80%;
-  height: 30px;
-  left: 60px;
 `;

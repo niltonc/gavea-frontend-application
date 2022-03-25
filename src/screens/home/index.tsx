@@ -10,7 +10,7 @@ import * as S from '../../styles';
 const arrayOrders: Array<any> = [
   {
     id: 1,
-    variation: 'up',
+    spread: 'up',
     image: require('../../assets/icons/avatar01.png'),
     part: 'AgAmerica',
     pag: 'Fev/21',
@@ -19,7 +19,7 @@ const arrayOrders: Array<any> = [
   },
   {
     id: 2,
-    variation: 'up',
+    spread: 'up',
     image: require('../../assets/icons/avatar02.png'),
     part: 'TrFood',
     pag: 'Fev/21',
@@ -28,7 +28,7 @@ const arrayOrders: Array<any> = [
   },
   {
     id: 3,
-    variation: 'down',
+    spread: 'down',
     image: require('../../assets/icons/avatar03.png'),
     part: 'Gosc',
     pag: 'Fev/21',
@@ -37,7 +37,7 @@ const arrayOrders: Array<any> = [
   },
   {
     id: 4,
-    variation: 'down',
+    spread: 'down',
     image: require('../../assets/icons/avatar04.png'),
     part: 'AgCerr',
     pag: 'Fev/21',
@@ -46,7 +46,7 @@ const arrayOrders: Array<any> = [
   },
   {
     id: 5,
-    variation: 'up',
+    spread: 'up',
     image: require('../../assets/icons/avatar05.png'),
     part: 'Agro1001',
     pag: 'Fev/21',
@@ -55,7 +55,7 @@ const arrayOrders: Array<any> = [
   },
   {
     id: 6,
-    variation: 'up',
+    spread: 'up',
     image: require('../../assets/icons/avatar06.png'),
     part: 'AgAmericana',
     pag: 'Fev/21',
@@ -64,7 +64,7 @@ const arrayOrders: Array<any> = [
   },
   {
     id: 7,
-    variation: 'up',
+    spread: 'up',
     image: require('../../assets/icons/avatar02.png'),
     part: 'TrFood',
     pag: 'Fev/21',
@@ -104,17 +104,17 @@ export default function HomePage({
           <Order.Card
             key={order.id}
             borderLeftColor={function changeColor() {
-              if (order.variation === 'up') {
+              if (order.spread === 'up') {
                 return 'green';
               }
               return 'red';
             }}
           >
             <Order.Icon source={order.image} />
-            <S.TextSimple>{order.part}</S.TextSimple>
-            <S.TextSimple>{order.pag}</S.TextSimple>
-            <S.TextSimple>{order.ton}</S.TextSimple>
-            <S.TextSimple>{order.value}</S.TextSimple>
+            <Order.TextPart>{order.part}</Order.TextPart>
+            <Order.TextPag>{order.pag}</Order.TextPag>
+            <Order.TextTon>{order.ton}</Order.TextTon>
+            <Order.TextValue>{order.value}</Order.TextValue>
           </Order.Card>
         ))}
       </S.ContainerOrder>
