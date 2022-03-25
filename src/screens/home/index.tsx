@@ -1,6 +1,8 @@
 import React from 'react';
 
 import logo from '../../assets/images/logo.png';
+import * as Card from '../../components/Card';
+import * as Order from '../../components/OrderCard';
 import { RootStackScreenProps } from '../../types';
 
 import * as S from '../../styles';
@@ -80,7 +82,7 @@ export default function HomePage({
         <S.LogoHome source={logo} />
       </S.DesignView>
 
-      <S.UserView />
+      <Card.User />
 
       <S.OrderContainer>
         <S.SubtitleView>
@@ -93,7 +95,7 @@ export default function HomePage({
 
       <S.OrderView>
         {arrayOrders.map((order) => (
-          <S.Order
+          <Order.Card
             key={order.id}
             borderLeftColor={function changeColor() {
               if (order.variation === 'up') {
@@ -102,12 +104,12 @@ export default function HomePage({
               return 'red';
             }}
           >
-            <S.OrderIcon source={order.image} />
+            <Order.Icon source={order.image} />
             <S.SimpleTextPrimary>{order.part}</S.SimpleTextPrimary>
             <S.SimpleTextPrimary>{order.pag}</S.SimpleTextPrimary>
             <S.SimpleTextPrimary>{order.ton}</S.SimpleTextPrimary>
             <S.SimpleTextPrimary>{order.value}</S.SimpleTextPrimary>
-          </S.Order>
+          </Order.Card>
         ))}
       </S.OrderView>
     </S.Container>

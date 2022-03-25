@@ -2,7 +2,7 @@ import React from 'react';
 
 import Logo from '../../assets/images/logo.png';
 import BGLogo from '../../assets/images/welcome-bg.png';
-import * as Button from '../../components/Buttons';
+import * as Button from '../../components/Button';
 import { RootStackScreenProps } from '../../types';
 
 import * as S from '../../styles';

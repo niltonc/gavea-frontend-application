@@ -46,6 +46,7 @@ export const ContainerButton = styled.View`
   margin-top: 500px;
 `;
 // ########### BUTTONS CONTAINER ##################
+
 export const TitleText = styled.Text`
   color: ${({ theme }) => theme.colors.black};
   position: absolute;
@@ -58,6 +59,7 @@ export const TitleText = styled.Text`
   margin-left: 5%;
   margin-top: 140px;
 `;
+// ######### INPUTS ##################
 export const TextInputContainer = styled.View`
   flex-direction: column;
   justify-content: center;
@@ -67,15 +69,7 @@ export const TextInputContainer = styled.View`
   position: absolute;
   margin-top: 155px;
 `;
-export const TextInput = styled.TextInput`
-  border-color: #b1bec2;
-  border-width: 1.5px;
-  border-radius: 4px;
-  width: 330px;
-  height: 55px;
-  margin-bottom: 15px;
-  padding: 15px;
-`;
+// ######### INPUTS ##################
 
 export const SimpleTextContainer = styled.View`
   position: absolute;
@@ -106,17 +100,6 @@ export const DesignView = styled.View`
   left: 0px;
   top: 0px;
   background: #01426a;
-`;
-
-export const UserView = styled.View`
-  position: absolute;
-  width: 330px;
-  height: 80px;
-  left: 15px;
-  top: 110px;
-  background-color: #ffffff;
-  border-radius: 7px;
-  elevation: 5;
 `;
 
 export const OrderContainer = styled.View`
@@ -150,19 +133,3 @@ export const OrderView = styled.View`
   height: 420px;
   top: 250px;
 `;
-
-export const Order = styled.View`
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  background: #ffffff;
-  width: 333px;
-  height: 50px;
-  border-radius: 4px;
-  elevation: 3;
-  margin-bottom: 8px;
-  border-left-color: ${(props) => props.borderLeftColor};
-  border-left-width: 5px;
-`;
-
-export const OrderIcon = styled.Image``;
