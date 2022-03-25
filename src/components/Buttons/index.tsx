@@ -1,10 +1,15 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  margin-top: 500px;
 `;
-
-export const ButtonPrimary = styled.TouchableOpacity`
+export const Primary = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.primary};
   justify-content: center;
   align-items: center;
@@ -12,15 +17,13 @@ export const ButtonPrimary = styled.TouchableOpacity`
   width: 330px;
   height: 55px;
 `;
-
-export const ButtonSecundary = styled(ButtonPrimary)`
+export const Secundary = styled(Primary)`
   border-color: ${({ theme }) => theme.colors.white};
   background-color: transparent;
   border-width: 1.5px;
   margin: 15px;
 `;
-
-export const ButtonText = styled.Text`
+export const Text = styled.Text`
   color: ${({ theme }) => theme.colors.white};
   position: absolute;
   font-style: normal;

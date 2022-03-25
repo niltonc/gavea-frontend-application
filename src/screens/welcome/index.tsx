@@ -2,6 +2,7 @@ import React from 'react';
 
 import Logo from '../../assets/images/logo.png';
 import BGLogo from '../../assets/images/welcome-bg.png';
+import * as Button from '../../components/Buttons';
 import { RootStackScreenProps } from '../../types';
 
 import * as S from '../../styles';
@@ -20,14 +21,14 @@ export default function Welcome({
           </S.WelcomeText>
         </S.WelcomeContainer>
 
-        <S.ButtonContainer>
-          <S.ButtonPrimary onPress={() => navigation.navigate('SignIn')}>
-            <S.ButtonText>Entrar</S.ButtonText>
-          </S.ButtonPrimary>
-          <S.ButtonSecundary onPress={() => navigation.navigate('SignUp')}>
-            <S.ButtonText>Criar Conta</S.ButtonText>
-          </S.ButtonSecundary>
-        </S.ButtonContainer>
+        <S.ContainerButton>
+          <Button.Primary onPress={() => navigation.navigate('SignIn')}>
+            <Button.Text>Entrar</Button.Text>
+          </Button.Primary>
+          <Button.Secundary onPress={() => navigation.navigate('SignUp')}>
+            <Button.Text>Criar Conta</Button.Text>
+          </Button.Secundary>
+        </S.ContainerButton>
       </S.BackgroundImage>
     </S.Container>
   );

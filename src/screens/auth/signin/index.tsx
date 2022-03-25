@@ -11,7 +11,7 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
       <S.TextInputContainer>
         <S.TextInput placeholder="Email" placeholderTextColor="#B1BEC2" />
         <S.TextInput placeholder="Semha" placeholderTextColor="#B1BEC2" />
-        <S.ButtonPrimary onPress={() => navigation.navigate('Home')}>
+        <S.ButtonPrimary onPress={() => navigation.navigate('HomePage')}>
           <S.ButtonText>Entrar</S.ButtonText>
         </S.ButtonPrimary>
       </S.TextInputContainer>
