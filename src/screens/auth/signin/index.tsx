@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import * as Button from '../../../components/Button';
 import * as Text from '../../../components/Input';
+import { signin } from '../../../services/firebase/auth';
 import { RootStackScreenProps } from '../../../types';
 
 import * as S from '../../../styles';
 
 export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSignIn = async () => {
+    await signin(email, password);
+    navigation.navigate('HomePage');
+  };
+
   return (
     <S.Container>
       <S.ContainerTitleBold>
@@ -15,10 +24,19 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
       </S.ContainerTitleBold>
 
       <S.ContainerTextInput>
-        <Text.Input placeholder="Email" placeholderTextColor="#B1BEC2" />
-        <Text.Input placeholder="Senha" placeholderTextColor="#B1BEC2" />
-
-        <Button.Margin onPress={() => navigation.navigate('HomePage')}>
+        <Text.Input
+          value={email}
+          onChangeText={(value) => setEmail(value)}
+          placeholder="Email"
+          placeholderTextColor="#B1BEC2"
+        />
+        <Text.Input
+          value={password}
+          onChangeText={(value) => setPassword(value)}
+          placeholder="Senha"
+          placeholderTextColor="#B1BEC2"
+        />
+        <Button.Margin onPress={handleSignIn}>
           <Button.Text>Entrar</Button.Text>
         </Button.Margin>
       </S.ContainerTextInput>
