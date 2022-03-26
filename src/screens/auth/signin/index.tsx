@@ -4,15 +4,19 @@ import * as Button from '../../../components/Button';
 import * as Text from '../../../components/Input';
 import { signin } from '../../../services/firebase/auth';
 import { RootStackScreenProps } from '../../../types';
+import { useDataStore } from '../../../zustand/store';
 
 import * as S from '../../../styles';
 
 export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
+  const { setInicialRouterName } = useDataStore();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignIn = async () => {
     await signin(email, password);
+    setInicialRouterName('HomePage');
     navigation.navigate('HomePage');
   };
 
@@ -35,6 +39,7 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
           onChangeText={(value) => setPassword(value)}
           placeholder="Senha"
           placeholderTextColor="#B1BEC2"
+          secureTextEntry
         />
         <Button.Margin onPress={handleSignIn}>
           <Button.Text>Entrar</Button.Text>
