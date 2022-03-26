@@ -1,13 +1,9 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import logo from '../../assets/images/logo-home.png';
 import * as Card from '../../components/Card';
 import * as Order from '../../components/OrderCard';
-import { actionCreators } from '../../state/action-creators/index';
-import { RootState } from '../../state/reducers/index';
-import { RootStackScreenProps } from '../../types';
+import { useDataStore } from '../../zustand/store';
 
 import * as S from '../../styles';
 
@@ -76,14 +72,16 @@ const arrayOrders: Array<any> = [
     value: 164.5,
   },
 ];
-export default function HomePage({
-  navigation,
-}: RootStackScreenProps<'HomePage'>) {
-  const dispatch = useDispatch();
 
-  const { userName, nickName } = bindActionCreators(actionCreators, dispatch);
+function changeColor(spread) {
+  if (spread === 'up') {
+    return 'green';
+  }
+  return 'red';
+}
 
-  const state = useSelector((state: RootState) => state.bank);
+export default function HomePage() {
+  const name = useDataStore((state) => state.name);
 
   return (
     <S.Container>
@@ -95,7 +93,7 @@ export default function HomePage({
         <Card.Avatar>
           <Card.AvatarText>FS</Card.AvatarText>
         </Card.Avatar>
-        <Card.UserName>Olá, Nilton</Card.UserName>
+        <Card.UserName>Olá, {name}</Card.UserName>
         <Card.UserSubtitle>Gavea Marketplace</Card.UserSubtitle>
       </Card.User>
 
@@ -112,12 +110,7 @@ export default function HomePage({
         {arrayOrders.map((order) => (
           <Order.Card
             key={order.id}
-            borderLeftColor={function changeColor() {
-              if (order.spread === 'up') {
-                return 'green';
-              }
-              return 'red';
-            }}
+            borderLeftColor={() => changeColor(order.spread)}
           >
             <Order.Icon source={order.image} />
             <Order.TextPart>{order.part}</Order.TextPart>
