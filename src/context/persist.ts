@@ -4,5 +4,7 @@ import { configurePersist } from 'zustand-persist';
 const { persist, purge } = configurePersist({
   storage: AsyncStorage,
 });
-export default persist;
+
 export { purge };
+
+export default persist;

@@ -10,13 +10,16 @@ interface IData {
 }
 
 const useDataStore = createStore<IData>(
-  persist({ key: 'Gavea-Lab' }, (set) => ({
-    name: '',
-    initialRouterName: 'Welcome',
-    setName: (name) => set({ name }),
-    setInicialRouterName: (initialRouterName: string) =>
-      set({ initialRouterName }),
-  }))
+  persist(
+    { key: 'Gavea-Lab', allowlist: ['name', 'initialRouterName'] },
+    (set) => ({
+      name: '',
+      isLogged: false,
+      initialRouterName: 'Welcome',
+      setName: (name) => set({ name }),
+      setInicialRouterName: (initialRouterName) => set({ initialRouterName }),
+    })
+  )
 );
 
 export { useDataStore };
