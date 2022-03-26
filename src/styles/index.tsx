@@ -84,6 +84,7 @@ export const SubtitleView = styled.View`
   height: 30px;
   left: 75px;
 `;
+export const ContainerInput = styled.View``;
 
 export const BackgroundImage = styled.ImageBackground`
   width: 100%;
