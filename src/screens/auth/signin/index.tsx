@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
 import emailicon from '../../../assets/icons/email.png';
+import eyeicon from '../../../assets/icons/eye.png';
 import lockicon from '../../../assets/icons/lock.png';
 import * as Button from '../../../components/Button';
 import * as Text from '../../../components/Input';
+import { useDataStore } from '../../../context/store';
 import { signin } from '../../../services/firebase/auth';
 import { RootStackScreenProps } from '../../../types';
-import { useDataStore } from '../../../zustand/store';
 
 import * as S from '../../../styles';
 
@@ -49,7 +50,10 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
             placeholderTextColor="#B1BEC2"
             secureTextEntry
           />
+
+          <Text.Iconeye source={eyeicon} />
         </S.ContainerInput>
+
         <Button.Margin onPress={handleSignIn}>
           <Button.Text>Entrar</Button.Text>
         </Button.Margin>
