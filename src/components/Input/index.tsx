@@ -15,7 +15,9 @@ export const Icon = styled.Image`
   top: 20px;
 `;
 export const IconLock = styled(Icon)`
-  position: absolute;
   left: 12px;
   top: 18px;
+`;
+export const Iconeye = styled(IconLock)`
+  left: 285px;
 `;
