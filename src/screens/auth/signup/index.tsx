@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import emailicon from '../../../assets/icons/email.png';
+import lockicon from '../../../assets/icons/lock.png';
+import usericon from '../../../assets/icons/user.png';
 import * as Button from '../../../components/Button';
 import * as Text from '../../../components/Input';
 import { signup } from '../../../services/firebase/auth';
@@ -28,30 +31,43 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
         <S.TitleSemiBold>Criar Conta</S.TitleSemiBold>
       </S.ContainerTitleSemiBold>
       <S.ContainerTextInputSec>
-        <Text.Input
-          value={userName}
-          onChangeText={(value) => setUserName(value)}
-          placeholder="Nome completo"
-          placeholderTextColor="#B1BEC2"
-        />
-        <Text.Input
-          value={email}
-          onChangeText={(value) => setEmail(value)}
-          placeholder="Email"
-          placeholderTextColor="#B1BEC2"
-        />
-        <Text.Input
-          value={password}
-          onChangeText={(value) => setPassword(value)}
-          placeholder="Senha"
-          placeholderTextColor="#B1BEC2"
-          secureTextEntry
-        />
-        <Text.Input
-          placeholder="Confirmar Senha"
-          placeholderTextColor="#B1BEC2"
-          secureTextEntry
-        />
+        <S.ContainerInput>
+          <Text.Icon source={usericon} />
+          <Text.Input
+            value={userName}
+            onChangeText={(value) => setUserName(value)}
+            placeholder="Nome completo"
+            placeholderTextColor="#B1BEC2"
+          />
+        </S.ContainerInput>
+
+        <S.ContainerInput>
+          <Text.Icon source={emailicon} />
+          <Text.Input
+            value={email}
+            onChangeText={(value) => setEmail(value)}
+            placeholder="Email"
+            placeholderTextColor="#B1BEC2"
+          />
+        </S.ContainerInput>
+        <S.ContainerInput>
+          <Text.IconLock source={lockicon} />
+          <Text.Input
+            value={password}
+            onChangeText={(value) => setPassword(value)}
+            placeholder="Senha"
+            placeholderTextColor="#B1BEC2"
+            secureTextEntry
+          />
+        </S.ContainerInput>
+        <S.ContainerInput>
+          <Text.IconLock source={lockicon} />
+          <Text.Input
+            placeholder="Confirmar Senha"
+            placeholderTextColor="#B1BEC2"
+            secureTextEntry
+          />
+        </S.ContainerInput>
 
         <Button.Margin onPress={handleSignUp}>
           <Button.Text>Cadastrar</Button.Text>
