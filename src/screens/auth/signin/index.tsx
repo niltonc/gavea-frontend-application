@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Text } from 'react-native';
 
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -9,6 +8,7 @@ import eyeicon from '../../../assets/icons/eye.png';
 import lockicon from '../../../assets/icons/lock.png';
 import * as Button from '../../../components/Button';
 import * as Texts from '../../../components/Input';
+import * as Yup from '../../../components/yup';
 import { useDataStore } from '../../../context/store';
 import { signin } from '../../../services/firebase/auth';
 import { RootStackScreenProps } from '../../../types';
@@ -23,6 +23,7 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
 
   const handleSignIn = async (values) => {
     const { email, password } = values;
+
     const user = await signin(email, password).catch((Error) => {
       if (Error.code === 'auth/user-not-found') {
         setErrorFirebase('O email inserido não corresponde a nenhuma conta');
@@ -31,9 +32,7 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
         setErrorFirebase('A senha inserida está incorreta');
       }
       if (Error.code === 'auth/too-many-requests') {
-        setErrorFirebase(
-          'Você errou a senha varias vezes. Tente novamente mais tarde'
-        );
+        setErrorFirebase('Senha incorreta varias vezes. Tente mais tarde');
       }
     });
     if (user) {
@@ -79,7 +78,7 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
           </S.ContainerTitleBold>
 
           <S.ContainerTextInput>
-            <Text>{errorFirebase}</Text>
+            <Yup.ErrosFirebase>{errorFirebase}</Yup.ErrosFirebase>
             <S.ContainerInput>
               <Texts.Icon source={emailicon} />
               <Texts.Input
@@ -90,7 +89,10 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
                 placeholderTextColor="#B1BEC2"
               />
             </S.ContainerInput>
-            {errors.email && touched.email && <Text>{errors.email}</Text>}
+
+            {errors.email && touched.email && (
+              <Yup.Email>{errors.email}</Yup.Email>
+            )}
 
             <S.ContainerInput>
               <Texts.IconLock source={lockicon} />
@@ -102,11 +104,11 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
                 placeholderTextColor="#B1BEC2"
                 secureTextEntry={securityPass}
               />
-
               <Texts.Iconeye source={eyeicon} />
             </S.ContainerInput>
+
             {errors.password && touched.password && (
-              <Text>{errors.password}</Text>
+              <Yup.Pass>{errors.password}</Yup.Pass>
             )}
 
             <Button.Margin disabled={!isValid} onPress={handleSubmit}>

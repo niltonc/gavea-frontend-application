@@ -6,7 +6,7 @@ export const Input = styled.TextInput`
   border-radius: 4px;
   width: 330px;
   height: 55px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   padding-left: 35px;
 `;
 export const Icon = styled.Image`

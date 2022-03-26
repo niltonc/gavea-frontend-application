@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Text } from 'react-native';
 
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -10,6 +9,7 @@ import lockicon from '../../../assets/icons/lock.png';
 import usericon from '../../../assets/icons/user.png';
 import * as Button from '../../../components/Button';
 import * as Texts from '../../../components/Input';
+import * as Yup from '../../../components/yup';
 import { useDataStore } from '../../../context/store';
 import { signup } from '../../../services/firebase/auth';
 import { RootStackScreenProps } from '../../../types';
@@ -90,7 +90,7 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
           </S.ContainerTitleSemiBold>
 
           <S.ContainerTextInputSec>
-            <Text>{errorFirebase}</Text>
+            <Yup.ErrosFirebase>{errorFirebase}</Yup.ErrosFirebase>
             <S.ContainerInput>
               <Texts.Icon source={usericon} />
               <Texts.Input
@@ -101,7 +101,8 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
                 placeholderTextColor="#B1BEC2"
               />
             </S.ContainerInput>
-            {errors.name && touched.name && <Text>{errors.name}</Text>}
+
+            {errors.name && touched.name && <Yup.User>{errors.name}</Yup.User>}
 
             <S.ContainerInput>
               <Texts.Icon source={emailicon} />
@@ -113,7 +114,10 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
                 placeholderTextColor="#B1BEC2"
               />
             </S.ContainerInput>
-            {errors.email && touched.email && <Text>{errors.email}</Text>}
+
+            {errors.email && touched.email && (
+              <Yup.EmailCad>{errors.email}</Yup.EmailCad>
+            )}
 
             <S.ContainerInput>
               <Texts.IconLock source={lockicon} />
@@ -127,8 +131,9 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
               />
               <Texts.Iconeye source={eyeicon} />
             </S.ContainerInput>
+
             {errors.password && touched.password && (
-              <Text>{errors.password}</Text>
+              <Yup.PassCad>{errors.password}</Yup.PassCad>
             )}
 
             <S.ContainerInput>
@@ -143,8 +148,9 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
               />
               <Texts.Iconeye source={eyeicon} />
             </S.ContainerInput>
+
             {errors.passwordConfirmation && touched.passwordConfirmation && (
-              <Text>{errors.passwordConfirmation}</Text>
+              <Yup.PassConfirm>{errors.passwordConfirmation}</Yup.PassConfirm>
             )}
 
             <Button.Margin disabled={!isValid} onPress={handleSubmit}>
