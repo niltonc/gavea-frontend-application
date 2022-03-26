@@ -1,8 +1,12 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import logo from '../../assets/images/logo-home.png';
 import * as Card from '../../components/Card';
 import * as Order from '../../components/OrderCard';
+import { actionCreators } from '../../state/action-creators/index';
+import { RootState } from '../../state/reducers/index';
 import { RootStackScreenProps } from '../../types';
 
 import * as S from '../../styles';
@@ -75,6 +79,12 @@ const arrayOrders: Array<any> = [
 export default function HomePage({
   navigation,
 }: RootStackScreenProps<'HomePage'>) {
+  const dispatch = useDispatch();
+
+  const { userName, nickName } = bindActionCreators(actionCreators, dispatch);
+
+  const state = useSelector((state: RootState) => state.bank);
+
   return (
     <S.Container>
       <S.View>
@@ -85,7 +95,7 @@ export default function HomePage({
         <Card.Avatar>
           <Card.AvatarText>FS</Card.AvatarText>
         </Card.Avatar>
-        <Card.UserName>Olá, Francisco</Card.UserName>
+        <Card.UserName>Olá, Nilton</Card.UserName>
         <Card.UserSubtitle>Gavea Marketplace</Card.UserSubtitle>
       </Card.User>
 
