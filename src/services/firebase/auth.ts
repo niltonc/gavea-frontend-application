@@ -26,3 +26,11 @@ export function signout() {
 export function verifypasswordresetcode(email) {
   return verifyPasswordResetCode(auth, email);
 }
+
+export async function checkAuth(navigation: any){
+  onAuthStateChanged(auth, user => {
+    if (user) {} else {
+      navigation.navigate('SignIn')
+    }
+  })
+};
