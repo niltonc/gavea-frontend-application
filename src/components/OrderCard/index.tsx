@@ -37,6 +37,6 @@ export const TextTon = styled(TextPag)`
   left: 220px;
 `;
 export const TextValue = styled(TextTon)`
-  ${(props) => props.selectionColor}
+  color: ${(props) => props.selectionColor};
   left: 270px;
 `;
