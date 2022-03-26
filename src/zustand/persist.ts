@@ -1,5 +1,4 @@
-import { AsyncStorage } from 'react-native';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { configurePersist } from 'zustand-persist';
 
 const { persist, purge } = configurePersist({
