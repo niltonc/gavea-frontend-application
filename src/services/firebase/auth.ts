@@ -4,7 +4,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
-  verifyPasswordResetCode,
+  onAuthStateChanged,
 } from 'firebase/auth';
 
 import app from './firebase';
@@ -23,12 +23,8 @@ export function signout() {
   return signOut(auth);
 }
 
-export function verifypasswordresetcode(email) {
-  return verifyPasswordResetCode(auth, email);
-}
-
 export async function checkAuth(navigation: any){
-  onAuthStateChanged(auth, user => {
+  return await onAuthStateChanged(auth, user => {
     if (user) {} else {
       navigation.navigate('SignIn')
     }
