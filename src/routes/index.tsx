@@ -8,6 +8,7 @@ import SignUp from '../screens/auth/signup';
 import HomePage from '../screens/home';
 import Welcome from '../screens/welcome';
 import { RootStackParamList } from '../types';
+import { useDataStore } from '../zustand/store';
 
 export default function Routes() {
   return (
@@ -20,8 +21,13 @@ export default function Routes() {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
+  const initialRouterName = useDataStore((state) => state.initialRouterName);
+
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator
+      initialRouteName={initialRouterName}
+      screenOptions={{ headerShown: false }}
+    >
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="SignIn" component={SignIn} />
