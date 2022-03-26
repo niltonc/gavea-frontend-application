@@ -4,8 +4,8 @@ import { RootStackScreenProps } from '../../../types';
 import logo from '../../assets/images/logo-home.png';
 import * as Card from '../../components/Card';
 import * as Order from '../../components/OrderCard';
+import { useDataStore } from '../../context/store';
 import { checkAuth } from '../../services/firebase/auth';
-import { useDataStore } from '../../zustand/store';
 
 import * as S from '../../styles';
 
@@ -86,6 +86,7 @@ export default function HomePage({ navigation }: RootStackScreenProps<'Home'>) {
   useEffect(() => {
     checkAuth(navigation);
   }, []);
+
   const name = useDataStore((state) => state.name);
 
   return (
