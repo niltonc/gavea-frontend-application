@@ -16,7 +16,7 @@ export default function App() {
     <ThemeProvider theme={GaveaTheme}>
       <Provider store={store}>
         <Routes />
-        <StatusBar style="auto" />
+        <StatusBar />
       </Provider>
     </ThemeProvider>
   );
