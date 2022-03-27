@@ -6,74 +6,9 @@ import * as Card from '../../components/Card';
 import * as Order from '../../components/OrderCard';
 import { useDataStore } from '../../context/store';
 import { checkAuth } from '../../services/firebase/auth';
+import { arrayOrders } from './data';
 
 import * as S from '../../styles';
-
-const arrayOrders: Array<any> = [
-  {
-    id: 1,
-    spread: 'up',
-    image: require('../../assets/icons/avatar01.png'),
-    part: 'AgAmerica',
-    pag: 'Fev/21',
-    ton: 2000,
-    value: 164.5,
-  },
-  {
-    id: 2,
-    spread: 'up',
-    image: require('../../assets/icons/avatar02.png'),
-    part: 'TrFood',
-    pag: 'Fev/21',
-    ton: 2000,
-    value: 164.5,
-  },
-  {
-    id: 3,
-    spread: 'down',
-    image: require('../../assets/icons/avatar03.png'),
-    part: 'Gosc',
-    pag: 'Fev/21',
-    ton: 2000,
-    value: 164.5,
-  },
-  {
-    id: 4,
-    spread: 'down',
-    image: require('../../assets/icons/avatar04.png'),
-    part: 'AgCerr',
-    pag: 'Fev/21',
-    ton: 2000,
-    value: 164.5,
-  },
-  {
-    id: 5,
-    spread: 'up',
-    image: require('../../assets/icons/avatar05.png'),
-    part: 'Agro1001',
-    pag: 'Fev/21',
-    ton: 2000,
-    value: 164.5,
-  },
-  {
-    id: 6,
-    spread: 'up',
-    image: require('../../assets/icons/avatar06.png'),
-    part: 'AgAmericana',
-    pag: 'Fev/21',
-    ton: 2000,
-    value: 164.5,
-  },
-  {
-    id: 7,
-    spread: 'up',
-    image: require('../../assets/icons/avatar02.png'),
-    part: 'TrFood',
-    pag: 'Fev/21',
-    ton: 2000,
-    value: 164.5,
-  },
-];
 
 function changeColor(spread) {
   if (spread === 'up') {
