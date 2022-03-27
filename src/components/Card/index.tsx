@@ -1,15 +1,25 @@
-import styled from 'styled-components/native';
+import { Platform } from 'react-native';
+
+import styled, { css } from 'styled-components/native';
 
 export const User = styled.View`
   position: absolute;
   justify-content: center;
-  width: 333px;
-  height: 80px;
-  left: 15px;
-  top: 110px;
   background-color: #ffffff;
   border-radius: 7px;
-  elevation: 5;
+  width: 333px;
+  height: 80px;
+  top: 110px;
+  ${Platform.select({
+    ios: css`
+      left: 40px;
+      elevation: 5;
+    `,
+    android: css`
+      left: 15px;
+      elevation: 5;
+    `,
+  })};
 `;
 export const Avatar = styled.View`
   background: #5998c5;
