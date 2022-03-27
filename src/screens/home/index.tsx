@@ -97,7 +97,7 @@ export default function HomePage({ navigation }: RootStackScreenProps<'Home'>) {
 
       <Card.User>
         <Card.Avatar>
-          <Card.AvatarText>FS</Card.AvatarText>
+          <Card.AvatarText> {`${name}`.substring(0, 2)}</Card.AvatarText>
         </Card.Avatar>
         <Card.UserName>Olá, {name}</Card.UserName>
         <Card.UserSubtitle>Gavea Marketplace</Card.UserSubtitle>
