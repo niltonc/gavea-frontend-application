@@ -8,7 +8,7 @@ import eyeicon from '../../../assets/icons/eye.png';
 import lockicon from '../../../assets/icons/lock.png';
 import usericon from '../../../assets/icons/user.png';
 import * as Button from '../../../components/Button';
-import * as Texts from '../../../components/Input';
+import * as Input from '../../../components/Input';
 import * as Yup from '../../../components/yup';
 import { useDataStore } from '../../../context/store';
 import { signup } from '../../../services/firebase/auth';
@@ -92,8 +92,8 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
           <S.ContainerTextInputSec>
             <Yup.ErrosFirebase>{errorFirebase}</Yup.ErrosFirebase>
             <S.ContainerInput>
-              <Texts.Icon source={usericon} />
-              <Texts.Input
+              <Input.IconEmail source={usericon} />
+              <Input.Text
                 value={values.name}
                 onChangeText={handleChange('name')}
                 onBlur={handleBlur('name')}
@@ -105,8 +105,8 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
             {errors.name && touched.name && <Yup.User>{errors.name}</Yup.User>}
 
             <S.ContainerInput>
-              <Texts.Icon source={emailicon} />
-              <Texts.Input
+              <Input.IconEmail source={emailicon} />
+              <Input.Text
                 value={values.email}
                 onChangeText={handleChange('email')}
                 onBlur={handleBlur('email')}
@@ -120,8 +120,8 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
             )}
 
             <S.ContainerInput>
-              <Texts.IconLock source={lockicon} />
-              <Texts.Input
+              <Input.IconLock source={lockicon} />
+              <Input.Text
                 value={values.password}
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
@@ -129,7 +129,9 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
                 placeholderTextColor="#B1BEC2"
                 secureTextEntry={securityPass}
               />
-              <Texts.Iconeye source={eyeicon} />
+              <Input.Click onPress={() => setSecurityPass(true)}>
+                <Input.Iconeye source={eyeicon} />
+              </Input.Click>
             </S.ContainerInput>
 
             {errors.password && touched.password && (
@@ -137,8 +139,8 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
             )}
 
             <S.ContainerInput>
-              <Texts.IconLock source={lockicon} />
-              <Texts.Input
+              <Input.IconLock source={lockicon} />
+              <Input.Text
                 value={values.passwordConfirmation}
                 onChangeText={handleChange('passwordConfirmation')}
                 onBlur={handleBlur('passwordConfirmation')}
@@ -146,7 +148,9 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
                 placeholderTextColor="#B1BEC2"
                 secureTextEntry={securityPass}
               />
-              <Texts.Iconeye source={eyeicon} />
+              <Input.Click onPress={() => setSecurityPass(true)}>
+                <Input.Iconeye source={eyeicon} />
+              </Input.Click>
             </S.ContainerInput>
 
             {errors.passwordConfirmation && touched.passwordConfirmation && (

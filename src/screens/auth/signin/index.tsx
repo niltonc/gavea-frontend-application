@@ -7,7 +7,7 @@ import emailicon from '../../../assets/icons/email.png';
 import eyeicon from '../../../assets/icons/eye.png';
 import lockicon from '../../../assets/icons/lock.png';
 import * as Button from '../../../components/Button';
-import * as Texts from '../../../components/Input';
+import * as Input from '../../../components/Input';
 import * as Yup from '../../../components/yup';
 import { useDataStore } from '../../../context/store';
 import { signin } from '../../../services/firebase/auth';
@@ -80,8 +80,8 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
           <S.ContainerTextInput>
             <Yup.ErrosFirebase>{errorFirebase}</Yup.ErrosFirebase>
             <S.ContainerInput>
-              <Texts.Icon source={emailicon} />
-              <Texts.Input
+              <Input.IconEmail source={emailicon} />
+              <Input.Text
                 value={values.email}
                 onChangeText={handleChange('email')}
                 onBlur={handleBlur('email')}
@@ -95,8 +95,8 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
             )}
 
             <S.ContainerInput>
-              <Texts.IconLock source={lockicon} />
-              <Texts.Input
+              <Input.IconLock source={lockicon} />
+              <Input.Text
                 value={values.password}
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
@@ -104,7 +104,9 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
                 placeholderTextColor="#B1BEC2"
                 secureTextEntry={securityPass}
               />
-              <Texts.Iconeye source={eyeicon} />
+              <Input.Click onPress={() => setSecurityPass(true)}>
+                <Input.Iconeye source={eyeicon} />
+              </Input.Click>
             </S.ContainerInput>
 
             {errors.password && touched.password && (
