@@ -1,4 +1,6 @@
-import styled from 'styled-components/native';
+import { Platform } from 'react-native';
+
+import styled, { css } from 'styled-components/native';
 
 export const Text = styled.Text`
   color: ${({ theme }) => theme.colors.primary};
@@ -6,7 +8,14 @@ export const Text = styled.Text`
   font-size: 12px;
 `;
 export const Email = styled(Text)`
-  left: 20px;
+  ${Platform.select({
+    ios: css`
+      left: 45px; ;
+    `,
+    android: css`
+      left: 20px; ;
+    `,
+  })};
   top: 70px;
 `;
 export const Pass = styled(Email)`
