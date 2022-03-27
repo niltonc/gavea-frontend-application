@@ -1,42 +1,36 @@
-# React Native School TypeScript Expo Template
+# Frontend Developer Test
 
-A simple Expo template with the following features:
+- Mobile, Web or Desktop.
 
-- All TypeScript
-- Eslint & Prettier configured
-- React Navigation v6
-- Testing Configured
-- Simple project structure
-- Small component library to get started with
+> A test you can take to move forward on your Gavea application process.
 
-It's easy to create a project, strip out the few components included, and still have the architecture in place to quickly start building an app.
+## App Screens
 
-## Usage
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-> Be sure to have the [Expo CLI](https://docs.expo.io/workflow/expo-cli/) installed.
+- Design:
+  > https://www.figma.com/file/Aom4QXrFbZ0XLFuqdzWUGx/Front-end-Mobile-Developer-Test
 
-```bash
-expo init --template @react-native-school/expo-typescript-template
-```
+### Requirements
 
-- Run on iOS: `yarn ios` or `npm run ios`
-- Run on Android: `yarn android` or `npm run android`
-- Run on Web: `yarn web` or `npm run web`
-- Compile TypeScript: `yarn tsc`
-- Run Tests: `yarn test` or `npm run test`
-- Lint Code: `yarn lint` or `npm run lint`
-- Format Code: `yarn format` or `npm run format`
+[x] Welcome screen
+[x] Login screen
+[x] Signup screen
+[x] Home screen (Protected by authentication)
+[x] You must use styled-components
+[x] You must use a state library (feel free to decide what to use)
+[-] You must create at least one automated test (feel free to decide what to use)
 
-## Screenshots
+Make sure to use best practices when setting up your project. Things like eslint and prettier are well seen.
 
-List Screen
-![List Screen](./assets/screenshots/list.png)
+### Plus
 
-Text Screen
-![Text Screen](./assets/screenshots/text.png)
+[x] Use typescript
+[x] Work on the UI to make it look **_pixel-perfect_** with the design for **_iPhone 8_** (or your browser of preference simulating the mobile viewport if you're creating a web app)
+[x] Make the authentication work with JWT (You can use Firebase or any public JSON API)
+[-] Animations
+[x] Semantic Git commits
 
-Form Screen
-![Form Screen](./assets/screenshots/form.png)
+### Are you finished?
 
-Button Screen
-![Button Screen](./assets/screenshots/button.png)
+After you finish your test, upload the source code to Github in a private repository and contact your test reviewer.
