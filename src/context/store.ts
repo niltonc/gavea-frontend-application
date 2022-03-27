@@ -1,6 +1,6 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import createStore from 'zustand';
-
-import persist from './persist';
+import { configurePersist } from 'zustand-persist';
 
 interface IData {
   name: string;
@@ -9,17 +9,18 @@ interface IData {
   setInicialRouterName: (initialRouterName: string) => void;
 }
 
+const { persist } = configurePersist({
+  storage: AsyncStorage,
+  rootKey: 'root',
+});
+
 const useDataStore = createStore<IData>(
-  persist(
-    { key: 'Gavea-Lab', allowlist: ['name', 'initialRouterName'] },
-    (set) => ({
-      name: '',
-      isLogged: false,
-      initialRouterName: 'Welcome',
-      setName: (name) => set({ name }),
-      setInicialRouterName: (initialRouterName) => set({ initialRouterName }),
-    })
-  )
+  persist({ key: 'Gavea-Lab' }, (set) => ({
+    name: '',
+    initialRouterName: 'Welcome',
+    setName: (name) => set({ name }),
+    setInicialRouterName: (initialRouterName) => set({ initialRouterName }),
+  }))
 );
 
 export { useDataStore };
