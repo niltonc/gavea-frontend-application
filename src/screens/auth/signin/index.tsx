@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { ActivityIndicator } from 'react-native-paper';
 
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
 import emailicon from '../../../assets/icons/email.png';
 import eyeicon from '../../../assets/icons/eye.png';
+import closeeye from '../../../assets/icons/eyeclose.png';
 import lockicon from '../../../assets/icons/lock.png';
 import * as Button from '../../../components/Button';
 import * as Input from '../../../components/Input';
@@ -22,6 +24,7 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
   const { setInicialRouterName } = useDataStore();
 
   const handleSignIn = async (values) => {
+    setLoading(true);
     const { email, password } = values;
 
     const user = await signin(email, password).catch((Error) => {
@@ -34,10 +37,12 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
       if (Error.code === 'auth/too-many-requests') {
         setErrorFirebase('Senha incorreta varias vezes. Tente mais tarde');
       }
+      setLoading(false);
     });
     if (user) {
       setInicialRouterName('HomePage');
       navigation.navigate('HomePage');
+      setLoading(false);
     }
   };
 
@@ -55,6 +60,8 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
       .required('Digite sua Senha')
       .min(4, ({ min }) => `A senha precisa ser maior que ${min} caracteres`),
   });
+
+  const [loading, setLoading] = useState(false);
 
   return (
     <Formik
@@ -104,8 +111,12 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
                 placeholderTextColor="#B1BEC2"
                 secureTextEntry={securityPass}
               />
-              <Input.Click onPress={() => setSecurityPass(true)}>
-                <Input.Iconeye source={eyeicon} />
+              <Input.Click onPress={() => setSecurityPass(!securityPass)}>
+                {securityPass ? (
+                  <Input.Iconeye source={eyeicon} />
+                ) : (
+                  <Input.Iconeye source={closeeye} />
+                )}
               </Input.Click>
             </S.ContainerInput>
 
@@ -113,8 +124,15 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
               <Yup.Pass>{errors.password}</Yup.Pass>
             )}
 
-            <Button.Margin disabled={!isValid} onPress={handleSubmit}>
-              <Button.Text>Entrar</Button.Text>
+            <Button.Margin
+              disabled={!isValid || loading}
+              onPress={handleSubmit}
+            >
+              {loading ? (
+                <ActivityIndicator color="white" />
+              ) : (
+                <Button.Text>Entrar</Button.Text>
+              )}
             </Button.Margin>
           </S.ContainerTextInput>
 

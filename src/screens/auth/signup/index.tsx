@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { ActivityIndicator } from 'react-native-paper';
 
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
 import emailicon from '../../../assets/icons/email.png';
 import eyeicon from '../../../assets/icons/eye.png';
+import closeeye from '../../../assets/icons/eyeclose.png';
 import lockicon from '../../../assets/icons/lock.png';
 import usericon from '../../../assets/icons/user.png';
 import * as Button from '../../../components/Button';
@@ -20,11 +22,13 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
   const { setName, setInicialRouterName } = useDataStore();
   const [errorFirebase, setErrorFirebase] = useState('');
   const [securityPass, setSecurityPass] = useState(true);
+  const [securityConfirmationPass, setSecurityConfirmationPass] =
+    useState(true);
 
   const handleSignUp = async (values) => {
+    setLoading(true);
     const { name, email, password } = values;
     const user = await signup(email, password).catch((Error) => {
-      console.log('Error: ', Error);
       if (Error.code === 'auth/email-already-exists') {
         setErrorFirebase('O email inserido já está em uso');
       }
@@ -63,6 +67,8 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
       .required('Você precisar confirmar sua senha')
       .oneOf([yup.ref('password'), null], 'As senhas precisam ser iguais'),
   });
+
+  const [loading, setLoading] = useState(false);
 
   return (
     <Formik
@@ -129,8 +135,12 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
                 placeholderTextColor="#B1BEC2"
                 secureTextEntry={securityPass}
               />
-              <Input.Click onPress={() => setSecurityPass(true)}>
-                <Input.Iconeye source={eyeicon} />
+              <Input.Click onPress={() => setSecurityPass(!securityPass)}>
+                {securityPass ? (
+                  <Input.Iconeye source={eyeicon} />
+                ) : (
+                  <Input.Iconeye source={closeeye} />
+                )}
               </Input.Click>
             </S.ContainerInput>
 
@@ -146,10 +156,18 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
                 onBlur={handleBlur('passwordConfirmation')}
                 placeholder="Confirmar Senha"
                 placeholderTextColor="#B1BEC2"
-                secureTextEntry={securityPass}
+                secureTextEntry={securityConfirmationPass}
               />
-              <Input.Click onPress={() => setSecurityPass(true)}>
-                <Input.Iconeye source={eyeicon} />
+              <Input.Click
+                onPress={() =>
+                  setSecurityConfirmationPass(!securityConfirmationPass)
+                }
+              >
+                {securityConfirmationPass ? (
+                  <Input.Iconeye source={eyeicon} />
+                ) : (
+                  <Input.Iconeye source={closeeye} />
+                )}
               </Input.Click>
             </S.ContainerInput>
 
@@ -157,8 +175,15 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
               <Yup.PassConfirm>{errors.passwordConfirmation}</Yup.PassConfirm>
             )}
 
-            <Button.Margin disabled={!isValid} onPress={handleSubmit}>
-              <Button.Text>Cadastrar</Button.Text>
+            <Button.Margin
+              disabled={!isValid || loading}
+              onPress={handleSubmit}
+            >
+              {loading ? (
+                <ActivityIndicator color="white" />
+              ) : (
+                <Button.Text>Cadastrar</Button.Text>
+              )}
             </Button.Margin>
           </S.ContainerTextInputSec>
 
