@@ -21,7 +21,9 @@ export default function Routes() {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
-  const initialRouterName = useDataStore((state) => state.initialRouterName);
+  const initialRouterName: any = useDataStore(
+    (state) => state.initialRouterName
+  );
 
   return (
     <Stack.Navigator
