@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { ActivityIndicator } from 'react-native-paper';
 
 import { Formik } from 'formik';
@@ -21,6 +21,9 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
   const [errorFirebase, setErrorFirebase] = useState('');
   const [securityPass, setSecurityPass] = useState(true);
   const [loading, setLoading] = useState(false);
+
+  const refInput01 = useRef();
+  const refInput02 = useRef();
 
   const { setInicialRouterName } = useDataStore();
 
@@ -75,6 +78,8 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
                 <EmailIcon />
               </Input.IconEmailView>
               <Input.Text
+                ref={refInput01}
+                onSubmitEditing={() => refInput02.current.focus()}
                 value={values.email}
                 onChangeText={handleChange('email')}
                 onBlur={handleBlur('email')}
@@ -92,6 +97,8 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
                 <LockIcon />
               </Input.IconLockView>
               <Input.Text
+                ref={refInput02}
+                returnKeyType="done"
                 value={values.password}
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
