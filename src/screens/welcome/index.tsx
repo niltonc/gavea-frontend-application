@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Logo from '../../assets/images/logo.png';
-import BGLogo from '../../assets/images/welcome-bg.png';
+import LogoGavea from '../../assets/images/logoGavea';
 import * as Button from '../../components/Button';
 import { RootStackScreenProps } from '../../types';
 
@@ -12,8 +11,10 @@ export default function Welcome({
 }: RootStackScreenProps<'Welcome'>) {
   return (
     <S.Container>
-      <S.BackgroundImage source={BGLogo}>
-        <S.Logo source={Logo} />
+      <S.BackgroundImage source={require('../../assets/images/welcome-bg.png')}>
+        <S.Logo>
+          <LogoGavea />
+        </S.Logo>
 
         <S.ContainerWelcome>
           <S.TextBold>

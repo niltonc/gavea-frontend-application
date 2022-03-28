@@ -2,28 +2,29 @@ import React, { useState } from 'react';
 import { ActivityIndicator } from 'react-native-paper';
 
 import { Formik } from 'formik';
-import * as yup from 'yup';
 
-import emailicon from '../../../assets/icons/email.png';
-import eyeicon from '../../../assets/icons/eye.png';
-import closeeye from '../../../assets/icons/eyeclose.png';
-import lockicon from '../../../assets/icons/lock.png';
+import EmailIcon from '../../../assets/icons/icon-email';
+import EyeCloseIcon from '../../../assets/icons/icon-eye-close';
+import EyeOpenIcon from '../../../assets/icons/icon-eye-open';
+import LockIcon from '../../../assets/icons/icon-lock';
 import * as Button from '../../../components/Button';
 import * as Input from '../../../components/Input';
 import * as Yup from '../../../components/yup';
 import { useDataStore } from '../../../context/store';
 import { signin } from '../../../services/firebase/auth';
 import { RootStackScreenProps } from '../../../types';
+import { validationSignIn } from '../../../utils/authValidations';
 
 import * as S from '../../../styles';
 
 export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
   const [errorFirebase, setErrorFirebase] = useState('');
   const [securityPass, setSecurityPass] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const { setInicialRouterName } = useDataStore();
 
-  const handleSignIn = async (values) => {
+  const handleSignIn = async (values: { email: string; password: string }) => {
     setLoading(true);
     const { email, password } = values;
 
@@ -45,23 +46,6 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
       setLoading(false);
     }
   };
-
-  const validationSignIn = yup.object().shape({
-    email: yup
-      .string()
-      .label('Email')
-      .email('Email Inválido.')
-      .required('Digite seu Email')
-      .trim()
-      .strict(),
-    password: yup
-      .string()
-      .label('Senha')
-      .required('Digite sua Senha')
-      .min(4, ({ min }) => `A senha precisa ser maior que ${min} caracteres`),
-  });
-
-  const [loading, setLoading] = useState(false);
 
   return (
     <Formik
@@ -87,7 +71,9 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
           <S.ContainerTextInput>
             <Yup.ErrosFirebase>{errorFirebase}</Yup.ErrosFirebase>
             <S.ContainerInput>
-              <Input.IconEmail source={emailicon} />
+              <Input.IconEmailView>
+                <EmailIcon />
+              </Input.IconEmailView>
               <Input.Text
                 value={values.email}
                 onChangeText={handleChange('email')}
@@ -102,7 +88,9 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
             )}
 
             <S.ContainerInput>
-              <Input.IconLock source={lockicon} />
+              <Input.IconLockView>
+                <LockIcon />
+              </Input.IconLockView>
               <Input.Text
                 value={values.password}
                 onChangeText={handleChange('password')}
@@ -112,11 +100,7 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
                 secureTextEntry={securityPass}
               />
               <Input.Click onPress={() => setSecurityPass(!securityPass)}>
-                {securityPass ? (
-                  <Input.Iconeye source={eyeicon} />
-                ) : (
-                  <Input.Iconeye source={closeeye} />
-                )}
+                {securityPass ? <EyeCloseIcon /> : <EyeOpenIcon />}
               </Input.Click>
             </S.ContainerInput>
 
@@ -136,12 +120,12 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignIn'>) {
             </Button.Margin>
           </S.ContainerTextInput>
 
-          <S.ContainerText>
+          <S.ContainerTextPrimary>
             <S.TextSimple>Não tem uma conta?</S.TextSimple>
             <S.TextClick onPress={() => navigation.navigate('SignUp')}>
               <S.TextPrimary>Criar conta</S.TextPrimary>
             </S.TextClick>
-          </S.ContainerText>
+          </S.ContainerTextPrimary>
         </S.Container>
       )}
     </Formik>

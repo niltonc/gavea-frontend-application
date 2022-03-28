@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 
-import { RootStackScreenProps } from '../../../types';
-import logo from '../../assets/images/logo-home.png';
+import LogoHome from '../../assets/images/logo';
 import * as Card from '../../components/Card';
 import * as Order from '../../components/OrderCard';
 import { useDataStore } from '../../context/store';
 import { checkAuth } from '../../services/firebase/auth';
+import { RootStackScreenProps } from '../../types';
 import { arrayOrders } from './data';
 
 import * as S from '../../styles';
 
-function changeColor(spread) {
+function changeColor(spread: any) {
   if (spread === 'up') {
     return 'green';
   }
@@ -27,7 +27,7 @@ export default function HomePage({ navigation }: RootStackScreenProps<'Home'>) {
   return (
     <S.Container>
       <S.View>
-        <S.LogoHome source={logo} />
+        <LogoHome />
       </S.View>
 
       <Card.User>
