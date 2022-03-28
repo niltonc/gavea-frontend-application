@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { ActivityIndicator } from 'react-native-paper';
 
 import { Formik } from 'formik';
@@ -22,9 +22,12 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
   const { setName, setInicialRouterName } = useDataStore();
   const [errorFirebase, setErrorFirebase] = useState('');
   const [securityPass, setSecurityPass] = useState(true);
-  const [securityConfirmationPass, setSecurityConfirmationPass] =
-    useState(true);
   const [loading, setLoading] = useState(false);
+
+  const refInput01 = useRef();
+  const refInput02 = useRef();
+  const refInput03 = useRef();
+  const refInput04 = useRef();
 
   const handleSignUp = async (values: {
     name: string;
@@ -80,11 +83,15 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
                 <UserIcon />
               </Input.IconUserView>
               <Input.Text
+                ref={refInput01}
+                onSubmitEditing={() => refInput02.current.focus()}
                 value={values.name}
                 onChangeText={handleChange('name')}
                 onBlur={handleBlur('name')}
                 placeholder="Nome completo"
                 placeholderTextColor="#B1BEC2"
+                returnKeyType="next"
+                blurOnSubmit={false}
               />
             </S.ContainerInput>
 
@@ -95,11 +102,14 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
                 <EmailIcon />
               </Input.IconEmailView>
               <Input.Text
+                ref={refInput02}
+                onSubmitEditing={() => refInput03.current.focus()}
                 value={values.email}
                 onChangeText={handleChange('email')}
                 onBlur={handleBlur('email')}
                 placeholder="Email"
                 placeholderTextColor="#B1BEC2"
+                returnKeyType="next"
               />
             </S.ContainerInput>
 
@@ -112,12 +122,15 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
                 <LockIcon />
               </Input.IconLockView>
               <Input.Text
+                ref={refInput03}
+                onSubmitEditing={() => refInput04.current.focus()}
                 value={values.password}
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
                 placeholder="Senha"
                 placeholderTextColor="#B1BEC2"
                 secureTextEntry={securityPass}
+                returnKeyType="next"
               />
               <Input.Click onPress={() => setSecurityPass(!securityPass)}>
                 {securityPass ? <EyeCloseIcon /> : <EyeOpenIcon />}
@@ -133,19 +146,17 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
                 <LockIcon />
               </Input.IconLockView>
               <Input.Text
+                ref={refInput04}
+                returnKeyType="done"
                 value={values.passwordConfirmation}
                 onChangeText={handleChange('passwordConfirmation')}
                 onBlur={handleBlur('passwordConfirmation')}
                 placeholder="Confirmar Senha"
                 placeholderTextColor="#B1BEC2"
-                secureTextEntry={securityConfirmationPass}
+                secureTextEntry={securityPass}
               />
-              <Input.Click
-                onPress={() =>
-                  setSecurityConfirmationPass(!securityConfirmationPass)
-                }
-              >
-                {securityConfirmationPass ? <EyeCloseIcon /> : <EyeOpenIcon />}
+              <Input.Click onPress={() => setSecurityPass(!securityPass)}>
+                {securityPass ? <EyeCloseIcon /> : <EyeOpenIcon />}
               </Input.Click>
             </S.ContainerInput>
 
