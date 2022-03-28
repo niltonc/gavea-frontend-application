@@ -15,31 +15,13 @@ ANDROID |  IPHONE
 
 - Signup screen - [✓]
 
-<<<<<<< HEAD
 - Home screen (Protected by authentication) - [✓]
-=======
--[x] Welcome screen
--[x] Login screen
--[x] Signup screen
--[x] Home screen (Protected by authentication)
--[x] You must use styled-components
--[x] You must use a state library (feel free to decide what to use)
--[x] You must create at least one automated test (feel free to decide what to use)
->>>>>>> fbcc322e7d03c703a137f9c34dcf058fd592e3f5
 
 - You must use styled-components - [✓]
 
 - You must use a state library (feel free to decide what to use) - [✓]
 
-<<<<<<< HEAD
 - You must create at least one automated test (feel free to decide what to use) - [✓]
-=======
--[x] Use typescript
--[x] Work on the UI to make it look **_pixel-perfect_** with the design for **_iPhone 8_** (or your browser of preference simulating the mobile viewport if you're creating a web app)
--[x] Make the authentication work with JWT (You can use Firebase or any public JSON API)
--[x] Animations
--[x] Semantic Git commits
->>>>>>> fbcc322e7d03c703a137f9c34dcf058fd592e3f5
 
 ## </>  Plus
 
@@ -55,9 +37,12 @@ ANDROID |  IPHONE
 
 ## </> Install Aplication
 
+
 _To install GaveAPP, follow these steps_
 
+
 Linux, macOS e Windows:
+
 
 ```
 npm install or yarn install
