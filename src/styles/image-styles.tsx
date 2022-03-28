@@ -7,11 +7,12 @@ export const BackgroundImage = styled.ImageBackground`
   height: 100%;
   position: absolute;
 `;
-export const Logo = styled.Image`
+export const Logo = styled.View`
   position: absolute;
-  margin-top: 45px;
-  margin-left: 5%;
+  margin-top: 50px;
+  margin-left: 6%;
 `;
+
 export const LogoHome = styled.Image`
   position: absolute;
   width: 99px;

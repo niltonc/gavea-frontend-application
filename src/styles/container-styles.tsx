@@ -7,7 +7,14 @@ export const Container = styled.View`
 `;
 export const ContainerWelcome = styled.View`
   height: 150px;
-  margin-top: 350px;
+  ${Platform.select({
+    ios: css`
+      top: 285px; ;
+    `,
+    android: css`
+      top: 340px; ;
+    `,
+  })};
 `;
 export const ContainerButton = styled.View`
   position: absolute;
@@ -18,10 +25,10 @@ export const ContainerButton = styled.View`
   height: 150px;
   ${Platform.select({
     ios: css`
-      top: 550px; ;
+      top: 500px; ;
     `,
     android: css`
-      top: 500px; ;
+      top: 490px; ;
     `,
   })};
 `;
@@ -34,7 +41,7 @@ export const ContainerTextInput = styled.View`
   height: 250px;
   ${Platform.select({
     ios: css`
-      top: 330px;
+      top: 325px;
     `,
     android: css`
       top: 270px;
@@ -46,14 +53,14 @@ export const ContainerTextInputSec = styled(ContainerTextInput)`
   height: 400px;
   ${Platform.select({
     ios: css`
-      top: 260px;
+      top: 240px;
     `,
     android: css`
       top: 200px;
     `,
   })};
 `;
-export const ContainerText = styled.View`
+export const ContainerTextPrimary = styled.View`
   position: absolute;
   flex-direction: row;
   justify-content: center;
@@ -62,10 +69,20 @@ export const ContainerText = styled.View`
   height: 20px;
   ${Platform.select({
     ios: css`
-      top: 700px;
+      top: 650px;
     `,
     android: css`
-      top: 635px;
+      top: 600px;
+    `,
+  })};
+`;
+export const ContainerTextSecundary = styled(ContainerTextPrimary)`
+  ${Platform.select({
+    ios: css`
+      top: 660px;
+    `,
+    android: css`
+      top: 625px;
     `,
   })};
 `;
@@ -89,7 +106,7 @@ export const ContainerTitleSemiBold = styled.View`
   height: 40px;
   ${Platform.select({
     ios: css`
-      top: 220px;
+      top: 200px;
     `,
     android: css`
       top: 170px;
@@ -111,6 +128,8 @@ export const ContainerOrder = styled.View`
 `;
 export const View = styled.View`
   position: absolute;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 150px;
   background: #01426a;
