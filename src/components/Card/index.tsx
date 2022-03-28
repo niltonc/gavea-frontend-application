@@ -38,14 +38,20 @@ export const AvatarText = styled.Text`
   font-size: 25px;
   font-weight: 500;
   font-style: normal;
+  justify-content: space-around;
+  align-items: center;
+  left: 10px;
 `;
 
 export const UserName = styled.Text`
   color: ${({ theme }) => theme.colors.black};
+  position: absolute;
   font-style: normal;
   font-weight: 700;
   font-size: 25px;
   left: 90px;
+  width: 230px;
+  top: 15px;
 `;
 export const UserSubtitle = styled(UserName)`
   font-style: normal;
@@ -53,4 +59,5 @@ export const UserSubtitle = styled(UserName)`
   font-size: 16px;
   color: #748c94;
   opacity: 0.8;
+  top: 45px;
 `;

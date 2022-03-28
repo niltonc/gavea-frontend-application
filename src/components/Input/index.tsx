@@ -9,21 +9,20 @@ export const Text = styled.TextInput`
   margin-bottom: 20px;
   padding-left: 35px;
 `;
-export const IconEmail = styled.Image`
+export const IconEmailView = styled.View`
   position: absolute;
   left: 12px;
   top: 20px;
 `;
-export const IconLock = styled(IconEmail)`
+export const IconUserView = styled(IconEmailView)``;
+export const IconLockView = styled(IconUserView)`
   left: 12px;
   top: 18px;
 `;
-export const Iconeye = styled(IconLock)`
-  left: 13px;
-`;
-
 export const Click = styled.TouchableOpacity`
   position: absolute;
+  justify-content: center;
+  align-items: center;
   width: 50px;
   height: 55px;
   left: 280px;
