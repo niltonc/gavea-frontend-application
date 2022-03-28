@@ -41,7 +41,7 @@ export const ContainerTextInput = styled.View`
   height: 250px;
   ${Platform.select({
     ios: css`
-      top: 325px;
+      top: 300px;
     `,
     android: css`
       top: 270px;
@@ -53,7 +53,7 @@ export const ContainerTextInputSec = styled(ContainerTextInput)`
   height: 400px;
   ${Platform.select({
     ios: css`
-      top: 240px;
+      top: 200px;
     `,
     android: css`
       top: 200px;
@@ -69,7 +69,7 @@ export const ContainerTextPrimary = styled.View`
   height: 20px;
   ${Platform.select({
     ios: css`
-      top: 650px;
+      top: 600px;
     `,
     android: css`
       top: 600px;
@@ -79,7 +79,7 @@ export const ContainerTextPrimary = styled.View`
 export const ContainerTextSecundary = styled(ContainerTextPrimary)`
   ${Platform.select({
     ios: css`
-      top: 660px;
+      top: 615px;
     `,
     android: css`
       top: 625px;
@@ -92,7 +92,7 @@ export const ContainerTitleBold = styled.View`
   height: 110px;
   ${Platform.select({
     ios: css`
-      top: 215px;
+      top: 190px;
     `,
     android: css`
       top: 150px;
@@ -106,7 +106,7 @@ export const ContainerTitleSemiBold = styled.View`
   height: 40px;
   ${Platform.select({
     ios: css`
-      top: 200px;
+      top: 170px;
     `,
     android: css`
       top: 170px;
