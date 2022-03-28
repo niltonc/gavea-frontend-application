@@ -7,5 +7,5 @@
     "src/styles/theme/styled.d.ts"
   ],
   "extends": "expo/tsconfig.base",
-  "include": ["src/assets", "src/custom.d.ts"]
+  "include" : ["./src/custom.d.ts"],
 }
