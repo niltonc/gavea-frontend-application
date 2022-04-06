@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 export const Container = styled.View`
   flex-direction: column;
@@ -18,15 +18,39 @@ export const Primary = styled.TouchableOpacity`
   width: 330px;
   height: 55px;
 `;
+
 export const Secundary = styled(Primary)`
   border-color: ${({ theme }) => theme.colors.white};
   background-color: transparent;
   border-width: 1.5px;
   margin: 15px;
 `;
+
+export const Top = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  width: 330px;
+  height: 55px;
+  ${(props) =>
+    props.primary &&
+    css`
+      background-color: ${({ theme }) => theme.colors.primary};
+    `}
+  ${(props) =>
+    props.secundary &&
+    css`
+      border-color: ${({ theme }) => theme.colors.white};
+      background-color: transparent;
+      border-width: 1.5px;
+      margin: 15px;
+    `}
+`;
+
 export const Margin = styled(Primary)`
   margin-top: 15px;
 `;
+
 export const Text = styled.Text`
   color: ${({ theme }) => theme.colors.white};
   position: absolute;

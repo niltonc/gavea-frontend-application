@@ -1,21 +1,12 @@
 import React from 'react';
 
-import * as ButtonStyle from './styles';
+import * as ButtonView from './styles';
 
-function Button({ onPress, children, type }) {
-  switch (type) {
-    case 'primary':
-      return (
-        <ButtonStyle.Primary onPress={onPress}>{children}</ButtonStyle.Primary>
-      );
-    case 'secundary':
-      return (
-        <ButtonStyle.Secundary onPress={onPress}>
-          {children}
-        </ButtonStyle.Secundary>
-      );
-    default:
-  }
+function Button({ onPress, children, ...rest }) {
+  return (
+    <ButtonView.Top onPress={onPress} {...rest}>
+      <ButtonView.Text>{children}</ButtonView.Text>
+    </ButtonView.Top>
+  );
 }
-
 export { Button };
