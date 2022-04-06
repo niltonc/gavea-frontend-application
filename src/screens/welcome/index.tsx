@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LogoGavea from '../../assets/images/logoGavea';
-import * as Button from '../../components/Button';
+import { Button } from '../../components/Button';
 import { RootStackScreenProps } from '../../types';
 
 import * as S from '../../styles';
@@ -23,12 +23,13 @@ export default function Welcome({
         </S.ContainerWelcome>
 
         <S.ContainerButton>
-          <Button.Primary onPress={() => navigation.navigate('SignIn')}>
-            <Button.Text>Entrar</Button.Text>
-          </Button.Primary>
-          <Button.Secundary onPress={() => navigation.navigate('SignUp')}>
-            <Button.Text>Criar Conta</Button.Text>
-          </Button.Secundary>
+          <Button primary onPress={() => navigation.navigate('SignIn')}>
+            Entrar
+          </Button>
+
+          <Button secundary onPress={() => navigation.navigate('SignUp')}>
+            Criar Conta
+          </Button>
         </S.ContainerButton>
       </S.BackgroundImage>
     </S.Container>
