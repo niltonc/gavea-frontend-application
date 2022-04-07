@@ -1,12 +1,12 @@
 import React from 'react';
 
-import * as ButtonView from './styles';
+import * as ButtonStyle from './styles';
 
 function Button({ onPress, children, ...rest }) {
   return (
-    <ButtonView.Top onPress={onPress} {...rest}>
-      <ButtonView.Text>{children}</ButtonView.Text>
-    </ButtonView.Top>
+    <ButtonStyle.View onPress={onPress} {...rest}>
+      <ButtonStyle.Text>{children}</ButtonStyle.Text>
+    </ButtonStyle.View>
   );
 }
 export { Button };
