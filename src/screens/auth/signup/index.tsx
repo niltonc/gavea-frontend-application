@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { ActivityIndicator } from 'react-native-paper';
 
 import { Formik } from 'formik';
 
@@ -8,7 +7,7 @@ import EyeCloseIcon from '../../../assets/icons/icon-eye-close';
 import EyeOpenIcon from '../../../assets/icons/icon-eye-open';
 import LockIcon from '../../../assets/icons/icon-lock';
 import UserIcon from '../../../assets/icons/icon-user';
-import * as Button from '../../../components/Button';
+import { Button } from '../../../components/Button';
 import * as Input from '../../../components/Input';
 import * as Yup from '../../../components/yup';
 import { useDataStore } from '../../../context/store';
@@ -164,16 +163,13 @@ export default function SingUp({ navigation }: RootStackScreenProps<'SignUp'>) {
               <Yup.PassConfirm>{errors.passwordConfirmation}</Yup.PassConfirm>
             )}
 
-            <Button.Margin
+            <Button
+              singin
               disabled={!isValid || loading}
               onPress={handleSubmit}
             >
-              {loading ? (
-                <ActivityIndicator color="white" />
-              ) : (
-                <Button.Text>Cadastrar</Button.Text>
-              )}
-            </Button.Margin>
+              Cadastrar
+            </Button>
           </S.ContainerTextInputSec>
 
           <S.ContainerTextSecundary>
